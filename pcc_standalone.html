@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China PCC Intake Form – Hive Digital Solutions</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; color: #222; background: #f0efe8; padding: 20px; }
+
+    .page { background: #fff; max-width: 780px; margin: 0 auto; padding: 32px 36px 28px; border: 1px solid #ccc; border-radius: 4px; }
+
+    .header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; }
+    .logo { display: flex; align-items: center; gap: 8px; }
+    .logo-text { font-family: Georgia, serif; font-size: 36px; color: #4a4a4a; line-height: 1; }
+    .logo-sub-block { display: flex; flex-direction: column; margin-top: 4px; }
+    .logo-sub-block .ds { font-size: 11px; font-weight: 500; color: #c0392b; letter-spacing: 0.03em; }
+    .logo-sub-block .divline { width: 110px; height: 1px; background: #c0392b; margin: 2px 0; }
+    .logo-sub-block .ap { font-size: 10px; color: #4a4a4a; letter-spacing: 0.03em; }
+
+    .btn-group { display: flex; gap: 10px; align-items: center; }
+    .print-btn { background: #4a4a4a; color: #fff; border: none; padding: 7px 18px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; letter-spacing: 0.04em; font-family: inherit; }
+    .print-btn:hover { background: #333; }
+
+    h1 { font-size: 20px; font-weight: 700; color: #1a1a1a; margin: 10px 0 3px; }
+    .services-line { font-size: 11px; color: #444; margin-bottom: 10px; }
+    .services-line strong { color: #1a1a1a; }
+
+    .before { margin-bottom: 12px; }
+    .before-title { font-size: 14px; font-weight: 700; color: #c0392b; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+    .before p { font-size: 12px; color: #333; line-height: 1.5; margin-bottom: 4px; }
+    .before .depends { font-size: 11px; color: #555; }
+    .before .depends strong { color: #222; }
+
+    .sec-header { background: #dce6f0; padding: 6px 10px; font-size: 13px; font-weight: 700; color: #1a1a2e; margin: 14px 0 8px; border-radius: 2px; }
+    .sec-header.dark { background: #4a4a4a; color: #fff; }
+
+    .field-row { display: flex; gap: 16px; margin-bottom: 7px; flex-wrap: wrap; }
+    .field { display: flex; align-items: center; gap: 6px; flex: 1; min-width: 220px; }
+    .field.full { flex: 1 1 100%; }
+    .field label { font-size: 12px; font-weight: 600; color: #222; white-space: nowrap; display: flex; align-items: center; gap: 4px; }
+    .field label .note { font-weight: 400; color: #666; font-size: 11px; }
+    .field input[type="text"], .field input[type="email"], .field input[type="tel"] {
+      border: none; border-bottom: 1px solid #aaa; outline: none; font-size: 12px; color: #222;
+      background: transparent; flex: 1; padding: 2px 4px; min-width: 80px; font-family: inherit;
+    }
+    .field input:focus { border-bottom-color: #c0392b; }
+
+    .diamond { color: #1a5fa8; font-size: 14px; flex-shrink: 0; }
+
+    .check-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 7px; font-size: 12px; }
+    .check-row label { display: flex; align-items: center; gap: 4px; cursor: pointer; font-weight: 400; }
+    .check-row .row-label { font-weight: 600; margin-right: 4px; display: flex; align-items: center; gap: 4px; }
+    .check-row input[type="checkbox"] { width: 13px; height: 13px; accent-color: #c0392b; cursor: pointer; }
+    .check-row input[type="text"] { border: none; border-bottom: 1px solid #aaa; outline: none; font-size: 12px; width: 120px; background: transparent; padding: 1px 3px; font-family: inherit; }
+
+    .doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; margin: 4px 0 7px 22px; }
+    .doc-grid label { display: flex; align-items: center; gap: 5px; font-size: 12px; cursor: pointer; }
+    .doc-grid input[type="checkbox"] { width: 13px; height: 13px; accent-color: #c0392b; }
+
+    .notes-row { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 7px; }
+    .notes-row label { font-size: 12px; font-weight: 600; white-space: nowrap; padding-top: 2px; display: flex; align-items: center; gap: 4px; }
+    .notes-row textarea { flex: 1; border: none; border-bottom: 1px solid #aaa; resize: none; font-size: 12px; font-family: inherit; background: transparent; outline: none; height: 32px; padding: 2px 4px; }
+    .notes-row textarea:focus { border-bottom-color: #c0392b; }
+
+    .confidentiality { font-size: 11px; color: #444; margin: 8px 0 12px; display: flex; align-items: flex-start; gap: 6px; line-height: 1.5; }
+
+    .submit-btn { background: #c0392b; color: #fff; border: none; padding: 10px 28px; border-radius: 24px; font-size: 13px; font-weight: 500; cursor: pointer; letter-spacing: 0.04em; font-family: inherit; }
+    .submit-btn:hover { background: #a93226; }
+
+    .internal-grid { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 8px; }
+    .internal-grid label { display: flex; align-items: center; gap: 4px; font-size: 11px; cursor: pointer; }
+    .internal-grid input[type="checkbox"] { width: 13px; height: 13px; accent-color: #c0392b; }
+    .internal-field { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+    .internal-field label { font-size: 12px; font-weight: 700; white-space: nowrap; }
+    .internal-field input[type="text"] { flex: 1; border: none; border-bottom: 1px solid #aaa; outline: none; font-size: 12px; background: transparent; padding: 2px 4px; font-family: inherit; }
+    .internal-field input[type="text"]:focus { border-bottom-color: #c0392b; }
+    .int-row { display: flex; gap: 20px; }
+    .int-row .internal-field { flex: 1; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { border: none; padding: 20px; }
+      .btn-group { display: none; }
+      .submit-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="logo">
+      <div class="logo-text">hive</div>
+      <svg width="42" height="38" viewBox="0 0 42 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top:2px">
+        <polygon points="21,2 30,7 30,17 21,22 12,17 12,7" fill="#c0392b"/>
+        <polygon points="30,8 39,13 39,23 30,28 21,23 21,13" fill="#4a4a4a"/>
+        <polygon points="30,0 38,4 38,12 30,16 22,12 22,4" fill="#4a4a4a" opacity="0.5"/>
+      </svg>
+      <div class="logo-sub-block">
+        <span class="ds">Digital Solutions</span>
+        <div class="divline"></div>
+        <span class="ap">Cross Border Document Specialists</span>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button class="print-btn" onclick="window.print()">&#128438; Print / Save PDF</button>
+    </div>
+  </div>
+
+  <h1>China Police Clearance Certificate (PCC) Intake Form</h1>
+  <div class="services-line"><strong>Document Services for Expats in China:</strong> FBI Background Checks &bull; Apostille &bull; Authentication &bull; Visa Documentation</div>
+
+  <div class="before">
+    <div class="before-title">&#128204; Before You Begin</div>
+    <p>Please complete this form so we can assess your eligibility and recommend the fastest compliant pathway for your China Police Clearance Certificate.</p>
+    <p class="depends"><strong>Processing depends on:</strong> City/cities of residence in China &bull; Document availability &bull; Urgency and destination country</p>
+  </div>
+
+  <div class="sec-header">Section 1: Personal &amp; Residency Details</div>
+
+  <div class="field-row">
+    <div class="field">
+      <label><span class="diamond">&#9670;</span> Full Name <span class="note">(per passport):</span></label>
+      <input type="text">
+    </div>
+    <div class="field">
+      <label>Nationality:</label>
+      <input type="text">
+    </div>
+  </div>
+  <div class="field-row">
+    <div class="field">
+      <label><span class="diamond">&#9670;</span> Passport Number:</label>
+      <input type="text">
+    </div>
+    <div class="field">
+      <label>Current Country:</label>
+      <input type="text">
+    </div>
+  </div>
+  <div class="field-row">
+    <div class="field">
+      <label><span class="diamond">&#9670;</span> Date of Birth <span class="note">(DD/MM/YYYY):</span></label>
+      <input type="text" placeholder="DD/MM/YYYY">
+    </div>
+    <div class="field">
+      <label>Total Duration in China:</label>
+      <input type="text">
+    </div>
+  </div>
+  <div class="field-row">
+    <div class="field full">
+      <label><span class="diamond">&#9670;</span> China Residence History <span class="note">(Last City/Province):</span></label>
+      <input type="text" style="min-width:260px">
+    </div>
+  </div>
+  <div class="check-row">
+    <span class="row-label"><span class="diamond">&#9670;</span> Lived in multiple cities?</span>
+    <label><input type="checkbox"> No</label>
+    <label><input type="checkbox"> Yes (If Yes, please list):</label>
+    <input type="text" placeholder="List cities...">
+  </div>
+
+  <div class="sec-header">Section 2: Visa &amp; Document Availability</div>
+
+  <div class="check-row">
+    <span class="row-label"><span class="diamond">&#9670;</span> Type of Visa Held:</span>
+    <label><input type="checkbox"> Work (Z)</label>
+    <label><input type="checkbox"> Student (X)</label>
+    <label><input type="checkbox"> Business (M)</label>
+    <label><input type="checkbox"> Tourist (L)</label>
+    <label><input type="checkbox"> Other:</label>
+    <input type="text" placeholder="Specify...">
+  </div>
+
+  <div style="margin-bottom:7px;">
+    <div class="check-row" style="margin-bottom:3px;"><span class="row-label"><span class="diamond">&#9670;</span> Document Checklist</span><span style="font-size:11px;color:#555;">(Select all you currently possess):</span></div>
+    <div class="doc-grid">
+      <label><input type="checkbox"> Old passport used in China</label>
+      <label><input type="checkbox"> Residence Permit pages</label>
+      <label><input type="checkbox"> New/Current passport</label>
+      <label><input type="checkbox"> Accommodation Registration (Police Registration)</label>
+      <label><input type="checkbox"> All China Visa pages</label>
+      <label><input type="checkbox"> Entry/Exit Stamps</label>
+    </div>
+  </div>
+
+  <div class="check-row">
+    <span class="row-label"><span class="diamond">&#9670;</span> Do you still have the physical passport used while in China?</span>
+    <label><input type="checkbox"> Yes</label>
+    <label><input type="checkbox"> No</label>
+  </div>
+
+  <div class="sec-header">Section 3: Purpose &amp; Service Level</div>
+
+  <div class="check-row">
+    <span class="row-label"><span class="diamond">&#9670;</span> Purpose of PCC:</span>
+    <label><input type="checkbox"> Immigration</label>
+    <label><input type="checkbox"> Employment</label>
+    <label><input type="checkbox"> Visa Application</label>
+    <label><input type="checkbox"> Other:</label>
+    <input type="text" placeholder="Specify...">
+  </div>
+  <div class="field-row">
+    <div class="field full">
+      <label><span class="diamond">&#9670;</span> Country where PCC will be used:</label>
+      <input type="text">
+    </div>
+  </div>
+  <div class="check-row">
+    <span class="row-label"><span class="diamond">&#9670;</span> Fingerprint-based PCC required?</span>
+    <label><input type="checkbox"> Yes</label>
+    <label><input type="checkbox"> No</label>
+    <label><input type="checkbox"> Not Sure</label>
+  </div>
+  <div class="check-row">
+    <span class="row-label"><span class="diamond">&#9670;</span> Legalization/Apostille required?</span>
+    <label><input type="checkbox"> Yes</label>
+    <label><input type="checkbox"> No</label>
+    <label><input type="checkbox"> Not Sure</label>
+  </div>
+  <div class="check-row">
+    <span class="row-label"><span class="diamond">&#9670;</span> Required Timeline:</span>
+    <label><input type="checkbox"> Standard</label>
+    <label><input type="checkbox"> Urgent</label>
+    <label><input type="checkbox"> Super Urgent</label>
+  </div>
+  <div class="check-row">
+    <span class="row-label"><span class="diamond">&#9670;</span> Previous attempts: Have you tried obtaining this PCC before?</span>
+    <label><input type="checkbox"> No</label>
+    <label><input type="checkbox"> Yes (If Yes, please list):</label>
+    <input type="text" placeholder="Details...">
+  </div>
+
+  <div class="sec-header">Section 4: Contact &amp; Office Use</div>
+
+  <div class="field-row">
+    <div class="field full">
+      <label><span class="diamond">&#9670;</span> Email:</label>
+      <input type="email">
+    </div>
+  </div>
+  <div class="field-row">
+    <div class="field full">
+      <label><span class="diamond">&#9670;</span> Phone/WhatsApp:</label>
+      <input type="tel">
+    </div>
+  </div>
+  <div class="field-row">
+    <div class="field full">
+      <label><span class="diamond">&#9670;</span> WeChat <span class="note">(Recommended):</span></label>
+      <input type="text">
+    </div>
+  </div>
+
+  <div class="notes-row">
+    <label><span class="diamond">&#9670;</span> Additional Notes:</label>
+    <textarea></textarea>
+  </div>
+
+  <div class="confidentiality">
+    <span>&#128274;</span>
+    <span><strong>Confidentiality Notice:</strong> All information provided is used solely for the purpose of assessing and processing your China PCC application.</span>
+  </div>
+
+  <div style="text-align:center; margin: 10px 0 16px;">
+    <button class="submit-btn" onclick="submitForm()">&#9993; Submit Form to Hive Digital</button>
+  </div>
+
+  <div class="sec-header dark">INTERNAL ASSESSMENT (OFFICE USE ONLY)</div>
+
+  <div class="internal-grid">
+    <label><input type="checkbox"> Standard Retrieval</label>
+    <label><input type="checkbox"> Additional Documents Required</label>
+    <label><input type="checkbox"> Multi-city Complexity</label>
+    <label><input type="checkbox"> High Urgency</label>
+    <label><input type="checkbox"> Manual Handling</label>
+  </div>
+  <div class="internal-field">
+    <label>Internal Notes:</label>
+    <input type="text">
+  </div>
+  <div class="int-row">
+    <div class="internal-field">
+      <label>Assessed By:</label>
+      <input type="text">
+    </div>
+    <div class="internal-field" style="max-width:200px;">
+      <label>Date:</label>
+      <input type="text" placeholder="DD/MM/YYYY">
+    </div>
+  </div>
+
+</div>
+
+<script>
+function submitForm() {
+  const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea');
+  const fields = [];
+
+  inputs.forEach(inp => {
+    const container = inp.closest('.field, .notes-row, .internal-field, .check-row');
+    if (container && inp.value.trim()) {
+      const lbl = container.querySelector('label');
+      const name = lbl ? lbl.textContent.replace(/[:\*]/g,'').trim().substring(0, 40) : 'Field';
+      fields.push(name + ': ' + inp.value.trim());
+    }
+  });
+
+  const checkboxGroups = document.querySelectorAll('.check-row, .doc-grid, .internal-grid');
+  checkboxGroups.forEach(group => {
+    const checked = Array.from(group.querySelectorAll('input[type="checkbox"]')).filter(c => c.checked);
+    if (checked.length) {
+      const rowLabel = group.querySelector('.row-label');
+      const groupName = rowLabel ? rowLabel.textContent.trim() : 'Selection';
+      const vals = checked.map(c => c.parentElement.textContent.trim()).join(', ');
+      fields.push(groupName + ': ' + vals);
+    }
+  });
+
+  const body = fields.length
+    ? 'PCC Intake Form Submission\n\n' + fields.join('\n')
+    : 'PCC Intake Form Submission\n\n(No fields filled in)';
+
+  window.location.href = 'mailto:sales@hiverelo.com'
+    + '?subject=' + encodeURIComponent('PCC Intake Form Submission')
+    + '&body=' + encodeURIComponent(body);
+}
+</script>
+</body>
+</html>
